@@ -35,12 +35,15 @@ const App = () => {
     //         });
     // }, []);
 
-    useEffect(async () => {
-        
-        let data = await api.getProducts();
-        console.log(data);
+    useEffect(() => {
+        api.getProducts()
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            
         setGoods(data.products);
         setData(data.products);
+    })
     }, [])
 
     return <>

@@ -9,8 +9,7 @@ class Api {
                 "Authorization": `Bearer ${this.token}`
             }
         })
-        .then(res => res.json())
-        .then(data => data);
+       
     }
     getProduct() {
 
