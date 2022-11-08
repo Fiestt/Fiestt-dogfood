@@ -6,7 +6,7 @@ import {ReactComponent as CartIcon} from "./img/ic-cart.svg"
 import {ReactComponent as ProfileIcon} from "./img/ic-profile.svg"
 
 
-export default ({products, update}) => {
+export default ({products, update, openPopup}) => {
 
     const [text, changeText] = useState("Рога");
     const [count, setCount] = useState(0);
@@ -31,7 +31,7 @@ export default ({products, update}) => {
             <nav>
                 <a href=""><FavIcon/></a>
                 <a href=""><CartIcon/></a>
-                <a href=""><ProfileIcon/></a>
+                <a href="" onClick={e => {e.preventDefault(); openPopup(true)}}><ProfileIcon/></a>
             </nav>
         </header>
         <div>

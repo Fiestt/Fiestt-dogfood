@@ -1,30 +1,56 @@
-import React, {useState} from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import product from "./pages/product";
-// import Catalog from "./pages/Catalog";
-import {Container, Row, Col} from "react-bootstrap"
-import Product from "./pages/product";
+import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Catalog from "./pages/catalog"
+// import {Container, Row, Col} from "react-bootstrap";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Modal from "./components/Modal";
+import Api from "./Api.js"
 
 const App = () => {
-        // const st = {
-        //     height: "50px",
-        //     backgroundColor: "silver",
-        //     border: "1px solid darkorchid"
-        // }
-        // return <Container style={{height: "900px", backgroundColor: "darkorchid"}}> 
-        //     <Row>
-        //         <Col md={12} style={st}/>
-        //         <Col md={3} xs={6} style={st}/>
-        //         <Col md={3} xs={6} style={st}/>
-        //         <Col md={3} xs={6} style={st}/>
-        //         <Col md={3} xs={6} style={st}/>
-        //         <Col md={12} style={st}/>
-        //         <Col md={6} style={st}/>
-        //         <Col md={6} style={st}/>
-        //         <Col md={12} style={st}/>
-        //     </Row>
-        // </Container>
-        return <Product/>
-    }
+    const [data, setData] = useState([]);
+    const [goods, setGoods] = useState([]);
+    const [token, setToken] = useState(localStorage.getItem("shopUser"));
+    const [popupActive, changePopupActive] = useState(false);
+
+    useEffect(() => {
+        console.log("user is changed");
+        setApi(new Api(token));
+    }, [token])
+    
+    const [api, setApi] = useState(new Api(token));
+
+    // useEffect(() => {
+
+    //     fetch("https://api.react-learning.ru/products",
+    //         {
+    //             headers: {
+    //                 "Authorization": `Bearer ${token}`
+    //             }
+    //         })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setGoods(data.products);
+    //             setData(data.products);
+    //         });
+    // }, []);
+
+    useEffect(async () => {
+        
+        let data = await api.getProducts();
+        console.log(data);
+        setGoods(data.products);
+        setData(data.products);
+    }, [])
+
+    return <>
+        <div className="wrapper">
+            <Header products={data} update={setGoods} openPopup = {changePopupActive}/>
+            <Catalog goods={goods} />
+            <Footer />
+        </div>
+        <Modal isActive={popupActive} changeActive={changePopupActive} />
+    </>
+}
 
 export default App;
