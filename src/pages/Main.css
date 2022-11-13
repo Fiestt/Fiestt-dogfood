@@ -1,0 +1,21 @@
+h2 {
+    margin: 0;
+}
+
+.mainContent {
+    justify-content: center;
+   
+}
+
+.mainContainer {
+   padding: 0 calc(50% - 750px);
+   position: relative;
+   top: -50px;
+}
+
+.spaceBtm {
+    margin-bottom: 15px;
+}
+
+
+

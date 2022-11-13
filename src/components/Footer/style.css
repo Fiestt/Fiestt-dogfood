@@ -14,9 +14,16 @@ footer {
     grid-row: 1 / span 4;
     grid-column-start: 4;
 }
+
+.contactsLinks {
+    font-weight: bold;
+    font-size: 18px;
+}
+
 footer>.logo {
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 2;
+    
 }
 .copy {
-    grid-row-start: 4
+    grid-row: 3 / span 2
 }

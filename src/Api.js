@@ -23,11 +23,25 @@ class Api {
     delProduct() {
 
     }
-    logIn() {
-
+    logIn(body) {
+        return fetch(`${this.path}/signin`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(body)
+        })
     }
     signUp() {
 
+    }
+    showProfile() {
+        return fetch(`${this.path}/v2/group-7/users/me`, {
+        headers: {
+            "Authorization": `Bearer ${this.token}`
+        }
+    })
     }
 }
 
