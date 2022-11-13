@@ -8,28 +8,28 @@ import "./style.css";
 import { ChevronRight } from "react-bootstrap-icons"
 
 
-export default () => {
-    return (
-    <>
-        <div className="mainWrapper">
-            <div className="container">
-                <Navbar className="mainHeader">
-                    <Navbar.Brand><Logo /></Navbar.Brand>
-                    <Form.Control type="search" placeholder="Поиск" className="mainSearch"></Form.Control>
-                    <Nav.Link href=""><FavIcon /></Nav.Link>
-                    <Nav.Link href=""><CartIcon /></Nav.Link>
-                    <Nav.Link href=""><ProfileIcon /></Nav.Link>
-                </Navbar>
-                <div className="headerContent">
-                    <div className="headerInfo">
-                        <h1 className="headerTitle">Крафтовые лакомства для собак</h1>
-                        <p className="headerText">Всегда свежие лакомства ручной работы с доставкой по России и Миру</p>
-                        <Button variant="light" className="mainHeaderBtn">Каталог
-                        <ChevronRight className="btnArrow"/></Button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </>
-    )
-} 
+// export default () => {
+//     return (
+//     <>
+//         <div className="mainWrapper">
+//             <div className="container">
+//                 <Navbar className="mainHeader">
+//                     <Navbar.Brand><Logo /></Navbar.Brand>
+//                     <Form.Control type="search" placeholder="Поиск" className="mainSearch"></Form.Control>
+//                     <Nav.Link href=""><FavIcon /></Nav.Link>
+//                     <Nav.Link href=""><CartIcon /></Nav.Link>
+//                     <Nav.Link href=""><ProfileIcon /></Nav.Link>
+//                 </Navbar>
+//                 <div className="headerContent">
+//                     <div className="headerInfo">
+//                         <h1 className="headerTitle">Крафтовые лакомства для собак</h1>
+//                         <p className="headerText">Всегда свежие лакомства ручной работы с доставкой по России и Миру</p>
+//                         <Button variant="light" className="mainHeaderBtn">Каталог
+//                         <ChevronRight className="btnArrow"/></Button>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     </>
+//     )
+// } 

@@ -43,7 +43,7 @@ export default ({products, update, openPopup, user, setToken}) => {
                 {!user && <a href="" onClick={e => {e.preventDefault(); openPopup(true)}}><BoxArrowInRight style={{fontSize: "2rem"}}/></a>}
             </nav>
         </header>
-        <div>
+        <div className="search">
             {text ? `По запросу ${text} найдено ${count} позиций` : "Поиск..."}
         </div>
     </> 

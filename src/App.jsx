@@ -55,15 +55,15 @@ const App = () => {
             setData([]);
         }
     }, [api])
-    return <>
-        <div className="wrapper">
-            <Header products={data} update={setGoods} openPopup = {changePopupActive} user={!!token} setToken={setToken} api={api}/>
-            <Catalog goods={goods} />
-            <Footer />
-        </div>
-        { !token && <Modal isActive={popupActive} changeActive={changePopupActive} setToken={setToken} api={api}/>}
-    </>
-    // return <Main/>
+    // return <>
+    //     <div className="wrapper">
+    //         <Header products={data} update={setGoods} openPopup = {changePopupActive} user={!!token} setToken={setToken} api={api}/>
+    //         <Catalog goods={goods} />
+    //         <Footer />
+    //     </div>
+    //     { !token && <Modal isActive={popupActive} changeActive={changePopupActive} setToken={setToken} api={api}/>}
+    // </>
+    return <Main/>
 }
 
 export default App;

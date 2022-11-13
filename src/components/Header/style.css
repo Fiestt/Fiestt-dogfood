@@ -28,6 +28,12 @@ input {
     padding: 8px 12px;
 }
 
+@media (max-width: 485px) {
+    input{
+        width: 120px;
+    }
+}
+
 header .logo {
     height: 40px;
     display: flex;
@@ -35,4 +41,8 @@ header .logo {
 
 .logo img {
     height: 100%;
+}
+.search {
+    background-color: var(--main-color);
+    padding:0 calc(50% - 130px);
 }
