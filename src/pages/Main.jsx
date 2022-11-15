@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {Container, Row, Col, Card, ButtonGroup, Button, Carousel} from "react-bootstrap"
-import "./Main.css"
+
 import Product from "../components/Card"
 import Banner from "../components/Banner";
 import Supplement from "../components/Supplement";
@@ -11,6 +11,7 @@ import Headlines from "../components/Headlines";
 import Watched from "../components/Watched";
 import { ChevronRight } from "react-bootstrap-icons"
 import TopCarusel from "../components/TopCarusel";
+import "./Main.css"
 
 
 import data from ".././assets/data.json";

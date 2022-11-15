@@ -1,7 +1,8 @@
 import React from "react";
-import "./style.css";
+
 import {ChevronRight, ChevronLeft} from "react-bootstrap-icons";
 import { ButtonGroup, Button } from "react-bootstrap";
+import "./style.css";
 
 export default ({header}) => {
     return (

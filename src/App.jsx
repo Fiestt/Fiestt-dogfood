@@ -12,6 +12,7 @@ import Main from "./pages/Main"
 import Profile from "./pages/Profile"
 import Local from "./Local.js"
 
+
 const App = () => {
     const [data, setData] = useState([]);
     const [goods, setGoods] = useState([]);
