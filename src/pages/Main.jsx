@@ -54,23 +54,23 @@ export default () => {
                     <Carousel.Item>
                         <Row>
                             <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel arr={data}/>
+                            <Product />
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
-                            <TopCarusel arr={data}/>
+                            <Product />
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                            <TopCarusel arr={data}/>
+                            <Product />
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                            <TopCarusel arr={data}/>
+                            <Product />
                             </Col>
                         </Row>
                     </Carousel.Item>
                     <Carousel.Item>
                         <Row>
                         <Col md={3} xs={6} className="spaceBtm">
-                            {/* <TopCarusel arr={data}/> */}
+                        <Product />
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
                                 <Product />

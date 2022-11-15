@@ -10,11 +10,11 @@ export default ({ isActive, changeActive, api, setToken, setUser }) => {
     const [pwd, setPwd] = useState("");
     const handler = e => {
         e.preventDefault();
-        console.log("xxxxxx")
+        // console.log("xxxxxx")
         api.logIn({ "email": email, "password": pwd })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log(data, "xxxxxxxxx");
                 Local.setItem("shopUser", data.token);
                 Local.setItem("u", data.data, true);
                 setToken(data.token);

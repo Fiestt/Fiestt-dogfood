@@ -8,7 +8,7 @@ import Card from "../CaruselCard";
 export default ({arr}) => {
     
     // console.log(arr, arr.length, "xxxxxxxxxxx")
-    console.log(arr)
+    // console.log(arr)
     // const obj = arr.splice(0,1)[0]
     // console.log(arr)
     

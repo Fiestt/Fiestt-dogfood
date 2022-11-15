@@ -9,7 +9,7 @@ export default ({api}) => {
     const [product, setProduct] = useState({})
     const [cnt, setCnt] = useState(0);
     let params = useParams();
-    console.log(params)
+    console.log(params, "2222222222222")
     useEffect(() => {
         api.getProduct(params.id)
             .then(res => res.json())
