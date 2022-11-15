@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {Container, Row, Col, Card, ButtonGroup, Button, Carousel} from "react-bootstrap"
@@ -10,16 +10,28 @@ import News from "../components/News";
 import Headlines from "../components/Headlines";
 import Watched from "../components/Watched";
 import { ChevronRight } from "react-bootstrap-icons"
+import TopCarusel from "../components/TopCarusel";
 
 
+import data from ".././assets/data.json";
+
+
+// useEffect(() => {
+//     data.splice(0,1);
+// }, [])
 
 
 
 export default () => {
+
+//    useEffect(() => {
+//    console.log(data);
+// }, [data])
+
     return (
         <>
         
-       <Header/>
+      
        
             <div className="headerContent">
                 <div className="headerInfo">
@@ -37,28 +49,28 @@ export default () => {
                 </Col>
 
                 <Headlines header="Хиты"/>
-
+                
                 <Carousel>
                     <Carousel.Item>
                         <Row>
                             <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                                <TopCarusel arr={data}/>
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                            <TopCarusel arr={data}/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                            <TopCarusel arr={data}/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                            <TopCarusel arr={data}/>
                             </Col>
                         </Row>
                     </Carousel.Item>
                     <Carousel.Item>
                         <Row>
                         <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                            {/* <TopCarusel arr={data}/> */}
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
                                 <Product />
@@ -166,9 +178,6 @@ export default () => {
 
         </Container>
 
-      
-
-       <Footer/>
        </>
     )
 }

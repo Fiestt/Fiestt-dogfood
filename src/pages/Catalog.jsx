@@ -11,6 +11,7 @@ export default ({goods}) => {
                     img={d.pictures}
                     text={d.name}
                     price={d.price}
+                    id={d._id}
                 />) :
                 <p style={{gridColumnEnd: "span 4", textAlign: "center"}}>"Для отображения данных нужно войти в систему"</p>
             }

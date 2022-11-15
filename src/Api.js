@@ -11,8 +11,13 @@ class Api {
         })
        
     }
-    getProduct() {
-
+    getProduct(id) {
+        return fetch(`${this.path}/products/${id}`, {
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        })
+       
     }
     addProduct() {
 

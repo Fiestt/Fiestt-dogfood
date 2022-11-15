@@ -1,13 +1,26 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import data from "../assets/data.json";
+import {useParams} from "react-router-dom"
 import { Container, Row, Col, Figure, Table, ButtonGroup, Button, Alert } from "react-bootstrap";
 import { Truck } from "react-bootstrap-icons"
 
-export default () => {
+export default ({api}) => {
     let p = data[0];
+    const [product, setProduct] = useState({})
     const [cnt, setCnt] = useState(0);
+    let params = useParams();
+    console.log(params)
+    useEffect(() => {
+        api.getProduct(params.id)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setProduct(data);
+            })
+    }, [])
     return (
         <Container>
+            {product._id && 
         <Row>
             <Col xs={12}>
                 <h1>{p.name}</h1>
@@ -69,7 +82,7 @@ export default () => {
                 <h2>Отзывы</h2>
             </Col>
         </Row>
-
+    }
         </Container>
     )
 }
