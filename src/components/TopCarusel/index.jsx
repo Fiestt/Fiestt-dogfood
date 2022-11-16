@@ -1,25 +1,32 @@
-import React from "react";
-// import data from "../.././assets/data.json";
+import React, { useEffect, useState } from "react";
+import data from "../.././assets/data.json";
 import Card from "../CaruselCard";
+import Local from "../.././Local.js"
+
+// фильтр по цене 
+
+export default ({index, goods, flag}) => {
+
+let arr = Local.getItem("goods", true)
 
 
-
-
-export default ({arr}) => {
+if (flag == "likes") {
+    arr.sort((a,b) => b.likes.length - a.likes.length)
+} else if (flag == "price") {
+    arr.sort((a,b) => a.price - b.price)
+} else { arr.sort((a,b) => b.discount - a.discount)
     
-    // console.log(arr, arr.length, "xxxxxxxxxxx")
-    // console.log(arr)
-    // const obj = arr.splice(0,1)[0]
-    // console.log(arr)
-    
+}
+// console.log(arr)
+
     return (
- 
+        <>
             <Card 
-                key={arr[0].id}
-                img={arr[0].picture}
-                text={arr[0].name}
-                price={arr[0].price}
+                    key={index}
+                    img={arr[index].pictures}
+                    text={arr[index].name}
+                    price={arr[index].price}
             ></Card>
-
+        </>
     )
 }

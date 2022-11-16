@@ -50,6 +50,7 @@ const App = () => {
             .then(data => {
                 setGoods(data.products);
                 setData(data.products);
+                Local.setItem("goods", data.products, true)
             })
         api.showProfile()
             .then(res => res.json())
@@ -61,6 +62,7 @@ const App = () => {
             setData([]);
         }
     }, [api])
+
     return <>
         <div className="wrapper">
             <Header 
@@ -77,7 +79,7 @@ const App = () => {
             <Main/> */}
 
             <Routes>
-                <Route path="/" element={<Main/>}/>
+                <Route path="/" element={<Main api={api}/>}/>
                 <Route path="/catalog" element={ <Catalog goods={goods}/> }/>
                 <Route path="/product/:id" element= {<Product  api={api}/>}/>
                 <Route path="/profile" element= {<Profile user={user}/>}/>

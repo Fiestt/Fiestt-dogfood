@@ -14,20 +14,10 @@ import TopCarusel from "../components/TopCarusel";
 import "./Main.css"
 
 
-import data from ".././assets/data.json";
-
-
-// useEffect(() => {
-//     data.splice(0,1);
-// }, [])
-
 
 
 export default () => {
 
-//    useEffect(() => {
-//    console.log(data);
-// }, [data])
 
     return (
         <>
@@ -55,32 +45,32 @@ export default () => {
                     <Carousel.Item>
                         <Row>
                             <Col md={3} xs={6} className="spaceBtm">
-                            <Product />
+                                <TopCarusel index={0} flag = "likes"/>
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
-                            <Product />
+                                <TopCarusel index={1} flag = "likes"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                            <Product />
+                                <TopCarusel index={2} flag = "likes"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                            <Product />
+                                <TopCarusel index={3} flag = "likes"/>
                             </Col>
                         </Row>
                     </Carousel.Item>
                     <Carousel.Item>
                         <Row>
                         <Col md={3} xs={6} className="spaceBtm">
-                        <Product />
+                                <TopCarusel index={4} flag = "likes"/>
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                                <TopCarusel index={5} flag = "likes"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                                <TopCarusel index={6} flag = "likes"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                                <TopCarusel index={7} flag = "likes"/>
                             </Col>
                         </Row>
                     </Carousel.Item>
@@ -95,32 +85,32 @@ export default () => {
                     <Carousel.Item>
                         <Row>
                             <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                                <TopCarusel index={0} flag = "price"/>
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                                <TopCarusel index={1} flag = "price"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                                <TopCarusel index={2} flag = "price"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                                <TopCarusel index={3} flag = "price"/>
                             </Col>
                         </Row>
                     </Carousel.Item>
                     <Carousel.Item>
                         <Row>
                         <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                                <TopCarusel index={4} flag = "price"/>
                             </Col>
                             <Col md={3} xs={6} className="spaceBtm">
-                                <Product />
+                                <TopCarusel index={5} flag = "price"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                                <TopCarusel index={6} flag = "price"/>
                             </Col>
                             <Col md={3} className="spaceBtm d-none d-md-block">
-                                <Product />
+                                <TopCarusel index={7} flag = "price"/>
                             </Col>
                         </Row>
                     </Carousel.Item>
