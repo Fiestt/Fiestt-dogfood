@@ -1,18 +1,60 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "../../App"
 import {Link} from "react-router-dom";
+import {Heart, HeartFill} from "react-bootstrap-icons";
 import "./style.css";
+import Local from "../../Local";
+import Api from "../../Api";
 
-const Card = ({text, price, img, id}) => {
+const Card = ({name, price, pictures, _id, likes, setFav}) => {
+    
+    const {api} = useContext(Context);
+    
+    let [like, setLike] = useState(false);
+
     const imgStyle = {
-        backgroundImage: `url(${img})`
+        backgroundImage: `url(${pictures})`
+    };
+
+    useEffect(() => {
+        let id = Local.getItem("u", true)._id;
+        // console.log(id);
+        if (likes.includes(id)) {
+            setLike(true);
+        } 
+    }, [])
+
+    
+
+
+    const likeHandler = e => {
+            e.stopPropagation();
+            e.preventDefault();
+            setLike(!like);
+            api.setLike(_id, !like)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data, like)
+                    if (!like) {
+                        setFav(prev => {return [...prev, data]})
+                    } else {
+                        setFav(prev => prev.filter(el => el._id !== _id))
+                    }
+                    console.log(data);
+                })
     }
+
     return (
-        <Link to={`/product/${id}`}>
-            <div className="card">
+        <Link to={`/product/${_id}`} className="cardsLink">
+            <div className="card caruselCard">
                 <div className="card__img" style={imgStyle}></div>
                 <div className="card__price">{price} ₽</div>
-                <div className="card__text">{text}</div>
+                <div className="card__text">{name}</div>
                 <button className="btn">В корзину</button>
+                <span className="card__like" 
+                onClick={likeHandler}>
+                {like ? <HeartFill/> : <Heart/> }
+                </span>
             </div>
         </Link>
     )

@@ -7,6 +7,16 @@
     gap: 10px;
 }
 
+.caruselCard {
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.cardsLink {
+    transition: 0.5s ease-out;
+    
+}
+
 .card__img {
     height: 120px;
     background: no-repeat center / contain;
@@ -17,7 +27,7 @@
 }
 
 .card__text {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .btn {

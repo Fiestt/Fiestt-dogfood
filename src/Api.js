@@ -19,10 +19,27 @@ class Api {
         })
        
     }
-    addProduct() {
+    addProduct(body) {
 
+        return fetch(`${this.path}/products/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${this.token}`
+            },
+            body: JSON.stringify(body)
+        })
     }
-    updProduct() {
+
+    updProduct(id, body) {
+        return fetch(`${this.path}/products/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${this.token}`
+            },
+            body: JSON.stringify(body)
+        })
 
     }
     delProduct() {
@@ -48,6 +65,16 @@ class Api {
         }
     })
     }
+
+    setLike(id, flag) {
+        return fetch(`${this.path}/products/likes/${id}`, {
+            method: flag ? "PUT" : "DELETE",
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        })
+    }
+
 }
 
 export default Api;

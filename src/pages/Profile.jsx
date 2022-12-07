@@ -3,7 +3,7 @@ import {Container, Row, Col, Figure} from "react-bootstrap";
 
 export default ({user}) => {
     return (
-        <Container>
+        <Container className="pt-5">
             {user.name && <Row>
                 <Col md={6}>
                     <h1>Профиль</h1>

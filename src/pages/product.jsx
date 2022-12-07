@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
+import {Context} from "../App" 
 import data from "../assets/data.json";
 import {useParams} from "react-router-dom"
 import { Container, Row, Col, Figure, Table, ButtonGroup, Button, Alert } from "react-bootstrap";
 import { Truck } from "react-bootstrap-icons"
 
-export default ({api}) => {
+export default () => {
+
+    const {api} = useContext(Context);
 
     const [product, setProduct] = useState({})
     const [cnt, setCnt] = useState(0);
@@ -14,10 +17,11 @@ export default ({api}) => {
         api.getProduct(params.id)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setProduct(data);
             })
     }, [])
+    
     return (
         <Container>
             {product._id && 
@@ -37,10 +41,10 @@ export default ({api}) => {
                         <Col md={6}>
                             <ButtonGroup>
                                 <Button size="sm" variant="light" disabled={!cnt}
-                                onСlick={e => setCnt(cnt-1)}>-</Button>
-                                <Button size="sm" variant="light" disabled>0</Button>
+                                onClick={e => setCnt(cnt-1)}>-</Button>
+                                <Button size="sm" variant="light" disabled>{cnt}</Button>
                                 <Button size="sm" variant="light"
-                                onСlick={e => setCnt(cnt+1)}>+</Button>
+                                onClick={e => setCnt(cnt+1)}>+</Button>
                             </ButtonGroup>
                         </Col>
                         <Col md={6}>

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {Container, Row, Col, Card, ButtonGroup, Button, Carousel} from "react-bootstrap"
+import { Link } from "react-router-dom";
 
 import Product from "../components/Card"
 import Banner from "../components/Banner";
@@ -9,8 +10,10 @@ import Supplement from "../components/Supplement";
 import News from "../components/News";
 import Headlines from "../components/Headlines";
 import Watched from "../components/Watched";
+import Carusel from "../components/Carusel/Carusel";
+
 import { ChevronRight } from "react-bootstrap-icons"
-import TopCarusel from "../components/TopCarusel";
+
 import "./Main.css"
 
 
@@ -28,8 +31,8 @@ export default () => {
                 <div className="headerInfo">
                     <h1 className="headerTitle">Крафтовые лакомства для собак</h1>
                     <p className="headerText">Всегда свежие лакомства ручной работы с доставкой по России и Миру</p>
-                    <Button variant="light" className="mainHeaderBtn">Каталог
-                    <ChevronRight className="btnArrow"/></Button>
+                    <Link to="/catalog"><Button variant="light" className="mainHeaderBtn">Каталог
+                    <ChevronRight className="btnArrow"/></Button></Link>
                 </div>
             </div>
             <Container className="mainContainer">
@@ -39,82 +42,12 @@ export default () => {
                    <Banner title="Подарок за первый заказ!" text="Легкое говяжье - пластины"/>
                 </Col>
 
-                <Headlines header="Хиты"/>
-                
-                <Carousel>
-                    <Carousel.Item>
-                        <Row>
-                            <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={0} flag = "likes"/>
-                            </Col>
-                            <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={1} flag = "likes"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={2} flag = "likes"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={3} flag = "likes"/>
-                            </Col>
-                        </Row>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <Row>
-                        <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={4} flag = "likes"/>
-                            </Col>
-                            <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={5} flag = "likes"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={6} flag = "likes"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={7} flag = "likes"/>
-                            </Col>
-                        </Row>
-                    </Carousel.Item>
-                </Carousel>
+                <Col md={12} > <Carusel flag = "likes" title = "Лакомства"/> </Col>
                 
                 <Col md={6} className="spaceBtm"> <Supplement title="Наборы" text="для дрессировки" price="от 840 Р"/></Col>
                 <Col md={6} className="spaceBtm"> <Supplement title="Микс масел" text="пищевая здоровая натуральная добавка"/></Col>
                 
-                <Headlines header="Лакомства"/>
-
-                <Carousel>
-                    <Carousel.Item>
-                        <Row>
-                            <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={0} flag = "price"/>
-                            </Col>
-                            <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={1} flag = "price"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={2} flag = "price"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={3} flag = "price"/>
-                            </Col>
-                        </Row>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <Row>
-                        <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={4} flag = "price"/>
-                            </Col>
-                            <Col md={3} xs={6} className="spaceBtm">
-                                <TopCarusel index={5} flag = "price"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={6} flag = "price"/>
-                            </Col>
-                            <Col md={3} className="spaceBtm d-none d-md-block">
-                                <TopCarusel index={7} flag = "price"/>
-                            </Col>
-                        </Row>
-                    </Carousel.Item>
-                </Carousel>
+                <Col md={12} > <Carusel flag = "discount" title = "Хиты"/> </Col>
                 
                 <Col md={6} className="spaceBtm"><Supplement title="Рога северного оленя" text="от 10 до 30 кг"/></Col>
                 <Col md={6} className="spaceBtm"><Supplement title="Слипы из шеи индейки" text="100% натуральное" /></Col>
