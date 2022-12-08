@@ -36,6 +36,10 @@ const App = () => {
     const [popupActive, changePopupActive] = useState(false);
     const [api, setApi] = useState(new Api(token));
     const [fav, setFav] = useState([]);
+    const [cart, setCart] = useState(() => {
+        let data = Local.getItem("cart", true);
+        return data || [];
+    });
 
     const [products, setProducts] = useState([]);
     const [searchText, search] = useState("");
@@ -62,6 +66,11 @@ const App = () => {
     //         });
     // }, []);
 
+    useEffect(() => {
+        Local.setItem("cart", cart, true)
+    }, [cart])
+    
+    
     useEffect(() => {
         if (token) {
         api.getProducts()
@@ -101,26 +110,27 @@ const App = () => {
     }}>
         <div className="wrapper" style={footerToBottom}>
             <div className="top" style={{flexGrow: 1}}>
-            <Header 
-            openPopup = {changePopupActive} 
-            user={!!token} 
-            setToken={setToken} 
-            api={api}
-            setUser={setUser}
-            likes={fav.length}/>
-            
-            
+                <Header 
+                openPopup = {changePopupActive} 
+                user={!!token} 
+                setToken={setToken} 
+                api={api}
+                setUser={setUser}
+                likes={fav.length}
+                cart={cart.length}/>
+                
+                
 
-            <Routes>
-                <Route path="/" element={<Main/>}/>
-                <Route path="/add" element={<AddProduct/>}/>
-                <Route path="/catalog" element={ <Catalog setFav={setFav}/> }/>
-                <Route path="/product/:id" element= {<Product/>}/>
-                {/* <Route path="/product/:id" element= {<Single/>}/> */}
-                <Route path="/profile" element= {<Profile user={user}/>}/>
-                <Route path="/favorites" element={<Favorites fav={fav}/>}/>
-               
-            </Routes>
+                <Routes>
+                    <Route path="/" element={<Main/>}/>
+                    <Route path="/add" element={<AddProduct/>}/>
+                    <Route path="/catalog" element={ <Catalog setFav={setFav} setCart={setCart}/> }/>
+                    <Route path="/product/:id" element= {<Product/>}/>
+                    {/* <Route path="/product/:id" element= {<Single/>}/> */}
+                    <Route path="/profile" element= {<Profile user={user}/>}/>
+                    <Route path="/favorites" element={<Favorites fav={fav}/>}/>
+                
+                </Routes>
             </div>
             <Footer />
         </div>

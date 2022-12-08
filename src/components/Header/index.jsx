@@ -9,7 +9,7 @@ import {ReactComponent as FavIcon} from "./img/ic-favorites.svg"
 import {ReactComponent as CartIcon} from "./img/ic-cart.svg"
 import {ReactComponent as ProfileIcon} from "./img/ic-profile.svg"
 
-export default ({openPopup, user, setToken, setUser, likes}) => {
+export default ({openPopup, user, setToken, setUser, likes, cart}) => {
 
     const nav = useNavigate();
 
@@ -40,7 +40,7 @@ export default ({openPopup, user, setToken, setUser, likes}) => {
                
                 {user && <Link to={'/favorites'}><a href=""><FavIcon/><span>{likes}</span></a></Link>}
                 {user && <Link to="/add"><PlusCircle/></Link>}
-                {user && <CartIcon/>}
+                {user && <a href=""><CartIcon/><span>{cart}</span></a>}
                 {user && <Link to="/profile"><ProfileIcon/></Link>}
                 {user && <a href="" onClick={logout}><BoxArrowLeft/></a>}
                 {!user && <a href="" onClick={e => {e.preventDefault(); openPopup(true)}}><BoxArrowInRight style={{fontSize: "2rem"}}/></a>}

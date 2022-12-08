@@ -6,9 +6,9 @@ import "./style.css";
 import Local from "../../Local";
 import Api from "../../Api";
 
-const Card = ({name, price, pictures, _id, likes, setFav}) => {
+const Card = ({name, price, pictures, _id, likes, setFav, setCart}) => {
     
-    const {api} = useContext(Context);
+    const {api, products} = useContext(Context);
     
     let [like, setLike] = useState(false);
 
@@ -23,8 +23,6 @@ const Card = ({name, price, pictures, _id, likes, setFav}) => {
             setLike(true);
         } 
     }, [])
-
-    
 
 
     const likeHandler = e => {
@@ -44,13 +42,25 @@ const Card = ({name, price, pictures, _id, likes, setFav}) => {
                 })
     }
 
+    const cartHandler = e => {
+        e.preventDefault();
+        products.map((el, i) => {
+            if (el._id === _id) {
+                setCart(prev => {
+                    if (!prev.includes(el)) {
+                    return [...prev,el]} else {return [...prev] }
+                })         
+            }
+        })
+    }
+
     return (
         <Link to={`/product/${_id}`} className="cardsLink">
             <div className="card caruselCard">
                 <div className="card__img" style={imgStyle}></div>
                 <div className="card__price">{price} ₽</div>
                 <div className="card__text">{name}</div>
-                <button className="btn">В корзину</button>
+                <button className="btn" onClick={cartHandler}>В корзину</button>
                 <span className="card__like" 
                 onClick={likeHandler}>
                 {like ? <HeartFill/> : <Heart/> }

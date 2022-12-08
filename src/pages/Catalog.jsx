@@ -4,7 +4,7 @@ import {Context} from "../App";
 import Pagination from "../components/Pagination";
 import usePagination from "../components/Hooks/usePagination";
 
-export default ({ setFav}) => {
+export default ({ setFav, setCart }) => {
     
     const { searchText, products, goods} = useContext(Context);
 
@@ -25,6 +25,7 @@ export default ({ setFav}) => {
                 {...d}
                 name={d.name.length > 20 ? d.name.slice(0,20) + "..." : d.name}
                 setFav={setFav}
+                setCart={setCart}
                 
             />) 
                 // <p>Для отображения данных войдите в систему</p>
@@ -44,6 +45,8 @@ export default ({ setFav}) => {
                 {...d}
                 name={d.name.length > 20 ? d.name.slice(0,20) + "..." : d.name}
                 setFav={setFav}
+                setCart={setCart}
+                
                 
             />)}
         </div>
