@@ -45,6 +45,7 @@ const Card = ({name, price, pictures, _id, likes, setFav, setCart}) => {
     const cartHandler = e => {
         e.preventDefault();
         products.map((el, i) => {
+            el.amount = 1;
             if (el._id === _id) {
                 setCart(prev => {
                     if (!prev.includes(el)) {

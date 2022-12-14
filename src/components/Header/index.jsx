@@ -40,7 +40,7 @@ export default ({openPopup, user, setToken, setUser, likes, cart}) => {
                
                 {user && <Link to={'/favorites'}><a href=""><FavIcon/><span>{likes}</span></a></Link>}
                 {user && <Link to="/add"><PlusCircle/></Link>}
-                {user && <a href=""><CartIcon/><span>{cart}</span></a>}
+                {user && <Link to={'/cart'}><a href=""><CartIcon/><span>{cart}</span></a></Link>}
                 {user && <Link to="/profile"><ProfileIcon/></Link>}
                 {user && <a href="" onClick={logout}><BoxArrowLeft/></a>}
                 {!user && <a href="" onClick={e => {e.preventDefault(); openPopup(true)}}><BoxArrowInRight style={{fontSize: "2rem"}}/></a>}

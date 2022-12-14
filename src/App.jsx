@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Favorites from "./components/Favorites"
+import Cart from "./pages/Cart";
 
 
 import Api from "./Api.js"
@@ -40,6 +41,8 @@ const App = () => {
         let data = Local.getItem("cart", true);
         return data || [];
     });
+
+
 
     const [products, setProducts] = useState([]);
     const [searchText, search] = useState("");
@@ -129,6 +132,7 @@ const App = () => {
                     {/* <Route path="/product/:id" element= {<Single/>}/> */}
                     <Route path="/profile" element= {<Profile user={user}/>}/>
                     <Route path="/favorites" element={<Favorites fav={fav}/>}/>
+                    <Route path="/cart" element={<Cart cart={cart}  setCart={setCart}/>}/>
                 
                 </Routes>
             </div>
