@@ -23,7 +23,7 @@ export default ({ isActive, changeActive, setToken, setUser }) => {
                 setUser(data.data)
                 setEmail("");
                 setPwd("");
-                changeActive(false);
+                changeActive(false); 
             })
     }
 

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Figure, Table, ButtonGroup, Button, Alert } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 import OrderedProduct from "../components/OrderedProduct/OrderedProduct";
 

@@ -1,3 +1,5 @@
+import { Postage } from "react-bootstrap-icons";
+
 class Api {
     constructor(token) {
         this.path = "https://api.react-learning.ru";
@@ -72,6 +74,28 @@ class Api {
             headers: {
                 "Authorization": `Bearer ${this.token}`
             }
+        })
+    }
+
+    getReviews(id) {
+        return fetch(`${this.path}/products/review/${id}` , {
+            headers: {
+                "Authorization": `Bearer ${this.token}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+    }
+
+    setReviews(id, body) {
+        return fetch(`${this.path}/products/review/${id}`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${this.token}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(body)
         })
     }
 

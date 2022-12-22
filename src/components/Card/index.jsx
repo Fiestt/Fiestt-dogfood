@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../../App"
 import {Link} from "react-router-dom";
 import {Heart, HeartFill} from "react-bootstrap-icons";
+import { Button } from "react-bootstrap";
 import "./style.css";
 import Local from "../../Local";
 import Api from "../../Api";
@@ -61,7 +62,7 @@ const Card = ({name, price, pictures, _id, likes, setFav, setCart}) => {
                 <div className="card__img" style={imgStyle}></div>
                 <div className="card__price">{price} ₽</div>
                 <div className="card__text">{name}</div>
-                <button className="btn" onClick={cartHandler}>В корзину</button>
+                <Button className="btn" variant="warning" onClick={cartHandler}>В корзину</Button>
                 <span className="card__like" 
                 onClick={likeHandler}>
                 {like ? <HeartFill/> : <Heart/> }

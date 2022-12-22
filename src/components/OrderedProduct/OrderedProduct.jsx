@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { Trash3 } from "react-bootstrap-icons"
+import { Table, ButtonGroup, Button } from "react-bootstrap";
+
 import Local from "../../Local";
-import { Container, Row, Col, Figure, Table, ButtonGroup, Button, Alert } from "react-bootstrap";
 import "./style.css"
-import { useEffect } from "react";
+
 
 export default ({name, price, pictures, discount, amount, setCart, setTotalPrice, setTotalDiscount, setResultPrice}) => {
 
@@ -75,7 +77,7 @@ export default ({name, price, pictures, discount, amount, setCart, setTotalPrice
       // Уменьшение количества товара
 
     const decreaseProduct = () => {
-        setCart( prev => {
+        setCart(() => {
             setCnt(cnt - 1)
             let newCart = productsInCart.map((el) => {
                 if (el.name === name) {

@@ -109,7 +109,8 @@ const App = () => {
         setProducts: setProducts, //фильтрация поиска
         search: search,
         api: api,
-        setApi: setApi
+        setApi: setApi,
+        user: user
     }}>
         <div className="wrapper" style={footerToBottom}>
             <div className="top" style={{flexGrow: 1}}>
@@ -128,8 +129,8 @@ const App = () => {
                     <Route path="/" element={<Main/>}/>
                     <Route path="/add" element={<AddProduct/>}/>
                     <Route path="/catalog" element={ <Catalog setFav={setFav} setCart={setCart}/> }/>
-                    <Route path="/product/:id" element= {<Product/>}/>
-                    {/* <Route path="/product/:id" element= {<Single/>}/> */}
+                    {/* <Route path="/product/:id" element= {<Product/>}/> */}
+                    <Route path="/product/:id" element= {<Single/>}/>
                     <Route path="/profile" element= {<Profile user={user}/>}/>
                     <Route path="/favorites" element={<Favorites fav={fav}/>}/>
                     <Route path="/cart" element={<Cart cart={cart}  setCart={setCart}/>}/>

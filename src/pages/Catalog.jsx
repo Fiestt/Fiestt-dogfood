@@ -10,8 +10,6 @@ export default ({ setFav, setCart }) => {
 
     const paginate = usePagination(products, 8)
 
-
-
     // console.log(searchText, "xxxxxx")
 
     return <>
@@ -23,7 +21,7 @@ export default ({ setFav, setCart }) => {
                 // price={d.price}
                 // id={d._id}
                 {...d}
-                name={d.name.length > 20 ? d.name.slice(0,20) + "..." : d.name}
+                name={d.name.length > 15 ? d.name.slice(0,15) + "..." : d.name}
                 setFav={setFav}
                 setCart={setCart}
                 
@@ -43,15 +41,16 @@ export default ({ setFav, setCart }) => {
                 // price={d.price}
                 // id={d._id}
                 {...d}
-                name={d.name.length > 20 ? d.name.slice(0,20) + "..." : d.name}
+                name={d.name.length > 15 ? d.name.slice(0,15) + "..." : d.name}
                 setFav={setFav}
                 setCart={setCart}
                 
                 
             />)}
         </div>
-      
-        <Pagination hook={paginate}/>
+
+            <Pagination hook={paginate}/>
+
 
     </>
 }

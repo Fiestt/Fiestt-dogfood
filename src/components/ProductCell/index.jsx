@@ -1,12 +1,13 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import "./style.css"
-import {Context} from "../../App" 
 import {XCircle, CheckCircle, PencilSquare} from "react-bootstrap-icons"
+import {Context} from "../../App" 
 
 
-export default ({setProduct, id, value, type, tagMain, tagInp}) => {
 
-    const {api} = useContext(Context);
+export default ({setProduct, product, id, value, type, tagMain, tagInp}) => {
+
+    const {api, user} = useContext(Context);
 
     const [flag, setFlag] = useState(false)
     const [content, setContent] = useState(value)
@@ -18,7 +19,7 @@ export default ({setProduct, id, value, type, tagMain, tagInp}) => {
         api.updProduct(id, obj)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log(data, "////");
                 setProduct(data);
                 setContent(data[type]);
                 setFlag(false);
@@ -36,7 +37,7 @@ export default ({setProduct, id, value, type, tagMain, tagInp}) => {
     <>
     <div className="product__row">
         {
-            flag ? 
+            flag ?  
             <>
                 {tagInp === "input" && <input className="product__inp" type = {type === "price" ? "number" : "text"} value={content} onChange={(e) => setContent(e.target.value)}/>}
                 {tagInp === "textarea" && <textarea className="product__inp" value={content} onChange={(e) => setContent(e.target.value)}></textarea>}
@@ -49,8 +50,8 @@ export default ({setProduct, id, value, type, tagMain, tagInp}) => {
                     <option>20</option>
                 </select>}
 
-                <a href="" className="product__btn"  onClick={change}><CheckCircle/></a>
-                <a href="" className="product__btn" onClick={cancel}><XCircle/></a>
+                {product.author.name === user.name && <a href="" className="product__btn"  onClick={change}><CheckCircle/></a>}
+                {product.author.name === user.name && <a href="" className="product__btn" onClick={cancel}><XCircle/></a>}
             </>
             :
             <>
@@ -60,10 +61,10 @@ export default ({setProduct, id, value, type, tagMain, tagInp}) => {
 
                 {tagMain !== "img" && tagMain !== "h1" && <div>{content}</div>}
 
-                <a href="" className="product__btn" onClick={(e) => {
+                {product.author.name === user.name && <a href="" className="product__btn" onClick={(e) => {
                     e.preventDefault();
                     setFlag(true); 
-            }}><PencilSquare/></a>
+            }}><PencilSquare/></a>}
             </>
         }
     </div>

@@ -26,12 +26,12 @@ export default ({flag, title}) => {
     const moveRight = () => {
 
         if (window.innerWidth <= 694) {
-            console.log("DA")
+ 
             position -= 215
             position = Math.max(position, (elem.current.childNodes.length - 4) * -215) 
         } else {
             console.log(window.innerWidth)
-            console.log("NET")
+
             position -= 230
             position = Math.max(position, (elem.current.childNodes.length - 4) * -230) 
         }
@@ -76,7 +76,7 @@ export default ({flag, title}) => {
             {goods.map((el, i) => <Card 
             key={i} 
             {...el}
-            name={el.name.length > 20 ? el.name.slice(0,20) + "..." : el.name}/> )}
+            name={el.name.length > 15 ? el.name.slice(0,15) + "..." : el.name}/> )}
         </div>
         </div>
     )
