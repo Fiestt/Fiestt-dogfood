@@ -5,7 +5,8 @@ import { Context } from "../../App"
 
 export default ({ comment, product, setComment }) => {
     const {api} = useContext(Context);
-    const [text, setText] = useState({})
+    const [text, setText] = useState("")
+    const [rate, setRate] = useState()
     const [name, setName] = useState(() => {
         return product.name.length > 20 
         ?  
@@ -17,9 +18,17 @@ export default ({ comment, product, setComment }) => {
     const handler = (e) => {
         e.preventDefault()
         console.log(text)
-        api.setReviews(product._id, text)
+        let obj = {
+            rating: rate,
+            text: text
+        }
+        console.log(obj)
+        api.setReviews(product._id, obj)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setComment(false)
+            })
     }
 
 
@@ -34,8 +43,21 @@ export default ({ comment, product, setComment }) => {
                 </Col>
             </Row>
             <Form onSubmit={handler}>
-                <Form.Label className="textareaLabel">Расскажите о товаре</Form.Label>
-                <Form.Control as="textarea" style={{ resize: "none" }} onChange={e => setText({text: e.target.value})} rows={5} />
+                <div className="rating">
+                    <div className="range">
+                        <Form.Label className="labelInfo">Оцените товар</Form.Label>
+                        <Form.Control 
+                            className = "formRange" 
+                            type="range" 
+                            min = {1} 
+                            max = {5} 
+                            step = {1} 
+                            onChange={(e) => setRate(e.target.value)}/>
+                    </div>
+                    <div className="ratingNumber">{rate}</div>
+                </div>
+                <Form.Label className="labelInfo">Расскажите о товаре</Form.Label>
+                <Form.Control as="textarea" style={{ resize: "none" }} onChange={e => setText(e.target.value)} rows={5} />
             <div className="commentBtns">
                 <Button onClick={e => setComment(false)} variant="light" className="btn cansel" >Отменить</Button>
                 <Button type="submit" className="btn" variant="warning">Отправить</Button>
@@ -43,5 +65,5 @@ export default ({ comment, product, setComment }) => {
             </Form>
           
         </div>
-    </div>
+    </div> 
 }

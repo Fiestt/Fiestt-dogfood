@@ -6,7 +6,8 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "docs"),
 		filename: "main.js",
-		publicPath: "/Fiestt-dogfood/" // внести сюда вместо / основной маршрут с гитхаба (логин включительно)
+		// publicPath: "/Fiestt-dogfood/" // внести сюда вместо / основной маршрут с гитхаба (логин включительно)
+		publicPath: "/" // внести сюда вместо / основной маршрут с гитхаба (логин включительно)
 	},
 	devServer: {
 		static: path.resolve(__dirname, "./docs"),

@@ -30,9 +30,6 @@ export default () => {
                 console.log(data);
                 setProduct(data);
             })
-        api.getReviews(params.id)
-            .then(res => res.json())
-            .then(data =>  console.log(data, "xxx"))
     }, [])
     
     const reaviewsHandler = () => {
@@ -71,10 +68,10 @@ export default () => {
 
     
     {isReviewsShown && 
-    <div>{reviews.map((el, i) => <WatchReview key={i} el={el}/>)}</div>}
+    <div>{reviews.map((el, i) => <WatchReview key={i} el={el} product={product} setProduct={setProduct} setReviews={setReviews} params={params}/>)}</div>}
     
     {comment && <Reviews comment={comment} product={product} setComment={setComment}/>}
     
-    </>
+    </> 
     )
 }

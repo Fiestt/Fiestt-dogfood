@@ -99,6 +99,15 @@ class Api {
         })
     }
 
+    delReview(productId, reviewId) {
+        return fetch(`${this.path}/products/review/${productId}/${reviewId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        })
+    }
+
 }
 
 export default Api;
