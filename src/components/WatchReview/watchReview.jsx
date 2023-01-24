@@ -61,7 +61,7 @@ export default ({ el, product, setReviews, setProduct, params }) => {
                     </th>
                     <td className="ratingStyle">{rating}</td>
                     {user.name === el.author.name && <td className="delReview">
-                        <Link to={""} onClick={delHandler}>X</Link>
+                        <Link to={""} onClick={delHandler}>Удалить</Link>
                         </td>}
                 </tr>
                 <tr>

@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import {Container, Row, Col} from "react-bootstrap";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import FooterMini from "./components/FooterMini/footerMini";
 import Modal from "./components/Modal";
 import Favorites from "./components/Favorites"
 import Cart from "./pages/Cart";
@@ -121,7 +122,7 @@ const App = () => {
                 api={api}
                 setUser={setUser}
                 likes={fav.length}
-                cart={cart.length}/>
+                cart={cart}/>
                 
                 
 
@@ -130,14 +131,14 @@ const App = () => {
                     <Route path="/add" element={<AddProduct/>}/>
                     <Route path="/catalog" element={ <Catalog setFav={setFav} setCart={setCart}/> }/>
                     {/* <Route path="/product/:id" element= {<Product/>}/> */}
-                    <Route path="/product/:id" element= {<Single/>}/>
+                    <Route path="/product/:id" element= {<Single setCart={setCart}/>}/>
                     <Route path="/profile" element= {<Profile user={user}/>}/>
                     <Route path="/favorites" element={<Favorites fav={fav}/>}/>
                     <Route path="/cart" element={<Cart cart={cart}  setCart={setCart}/>}/>
                 
                 </Routes>
             </div>
-            <Footer />
+            {window.innerWidth < 768 ? <FooterMini user={user} favLength={fav.length} cart={cart} /> : <Footer />}
         </div>
         { !token && <Modal 
         isActive={popupActive} 

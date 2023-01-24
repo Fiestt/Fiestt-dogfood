@@ -3,7 +3,7 @@ import "./setReview.css"
 import { Form, Button, Col, Row, Figure } from "react-bootstrap"
 import { Context } from "../../App"
 
-export default ({ comment, product, setComment }) => {
+export default ({ comment, product, setComment, setReviews }) => {
     const {api} = useContext(Context);
     const [text, setText] = useState("")
     const [rate, setRate] = useState()
@@ -28,6 +28,7 @@ export default ({ comment, product, setComment }) => {
             .then(data => {
                 console.log(data)
                 setComment(false)
+                // setReviews(data.reviews)
             })
     }
 

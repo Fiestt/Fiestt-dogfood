@@ -55,7 +55,7 @@ export default () => {
                     <Row>
                         <Col md={1}><Truck/></Col>
                         <Col> <small>Доставка по всему миру!</small></Col>  
-                    </Row>
+                    </Row> 
                     </Alert>
             </Col>
             <Col xs={12}>

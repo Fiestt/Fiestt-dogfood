@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 
 import { Trash3 } from "react-bootstrap-icons"
 import { Table, ButtonGroup, Button } from "react-bootstrap";
@@ -7,7 +8,7 @@ import Local from "../../Local";
 import "./style.css"
 
 
-export default ({name, price, pictures, discount, amount, setCart, setTotalPrice, setTotalDiscount, setResultPrice}) => {
+export default ({name, price, pictures, _id, discount, amount, setCart, setTotalPrice, setTotalDiscount, setResultPrice}) => {
 
     const tableStyle = {
         textAlign: "center"
@@ -95,14 +96,16 @@ export default ({name, price, pictures, discount, amount, setCart, setTotalPrice
         <tbody>
             <tr style={tableStyle}>
                 <th style={{width: "300px"}}>
-                    <div className="orederdProductInfo">
-                        <div>
-                            <div className="card__img" style={imgStyle}></div>
+                    <Link to={`/product/${_id}`}>
+                        <div className="orederdProductInfo">
+                            <div>
+                                <div className="card__img" style={imgStyle}></div>
+                            </div>
+                            <div> 
+                                <div className="card__text">{name}</div>
+                            </div>
                         </div>
-                        <div> 
-                            <div className="card__text">{name}</div>
-                        </div>
-                    </div>
+                    </Link>
                 </th>
                 <td style={{width: "100px"}}> 
                     <ButtonGroup>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 import OrderedProduct from "../components/OrderedProduct/OrderedProduct";
@@ -38,17 +38,32 @@ export default ({cart, setCart}) => {
 
     const [resultPrice, setResultPrice] = useState(Math.ceil(totalPrice + totalDiscount))
 
+    const [cartWord, setCartWord] = useState();
+    const [cartAmount, setCartAmount] = useState();
+
+    useEffect(() => {
+        setCartAmount(cart.reduce((acc, el) => acc + el.amount, 0));
+    }, [cart]);
+
+    useEffect(() => {
+        if ((cartAmount === 11) || (cartAmount === 12) || (cartAmount === 13) || (cartAmount === 14)) { setCartWord("товаров"); }
+        else if ((cartAmount % 10) === 1) { setCartWord("товар"); }
+        else if (((cartAmount % 10) === 2) || ((cartAmount % 10) === 3) || ((cartAmount % 10) === 4)) { setCartWord("товара"); }
+        else { setCartWord("товаров"); }
+    }, [cartAmount])
+
     return (
         <Container style={{maxWidth: "1000px"}}>
             
             <Row>
-                <Col md={12} style={{fontSize: "30px", padding: "20px 15px"}}> {cart.length > 0 ? "Товары в корзине:" : "Нет товаров в корзине =("}
+                <Col md={12} style={{fontSize: "30px", padding: "20px 15px"}}> {cart.length > 0 ? cartAmount + " " + cartWord + " в корзине" : "Нет товаров в корзине =("}
                     
                 </Col>
                 <Col md={8}>       
 
                     {cart.map((el, i) => <OrderedProduct 
-                    key={i} {...el} 
+                    key={i} 
+                    {...el} 
                     setCart={setCart} 
                     setTotalPrice={setTotalPrice} 
                     setTotalDiscount={setTotalDiscount} 
@@ -60,7 +75,7 @@ export default ({cart, setCart}) => {
                         <Col md={12}><strong>Ваша корзина</strong></Col>
                         <Row>
                             <Col md={6} sm={6} xs={6}>
-                                Товары ({cart.length})
+                                Товары ({cartAmount})
                             </Col>
                             <Col md={6} sm={6} xs={6} style={stylePrice}>
                                 {totalPrice} ₽
