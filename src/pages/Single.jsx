@@ -41,32 +41,19 @@ export default ({setCart}) => {
 
 
     let params = useParams();
-    // console.log(params)
     useEffect(() => {
         api.getProduct(params.id)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setProduct(data)
                 setProductName(data.author.name);
             })
     }, [])
-    
-    // const reaviewsHandler = () => {
-    //     setIsReviewsShown(!isReviewsShown)
-    //     api.getReviews(params.id)
-    //         .then(res => res.json())
-    //         .then(data =>  {
-    //             console.log(data, "xxx")
-    //             setReviews(data)
-    //         })
-    // }
 
     useEffect(() => {
         api.getReviews(params.id)
             .then(res => res.json())
             .then(data =>  {
-                console.log(data, "xxx")
                 setReviews(data)
             })
     }, [])
@@ -82,7 +69,6 @@ export default ({setCart}) => {
 
     const allReviewsHandler = () => {
         setAllReviews(true)
-        console.log(product, user)
     }
 
     const closeAllReviewsHandler = () => {

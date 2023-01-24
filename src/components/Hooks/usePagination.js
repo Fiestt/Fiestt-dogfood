@@ -10,13 +10,11 @@ export default (data, cnt) => {
     const next = () => {
         let newPage = Math.min(page + 1, maxPage)
         setPage(newPage);
-        console.log(newPage)
     } 
 
     const prev = () => {
         let newPage = Math.max(1, page - 1)
         setPage(newPage);
-        console.log(newPage)
     }
 
     const change = (p) => {
@@ -41,7 +39,7 @@ export default (data, cnt) => {
 
         return data.slice(start, end);
     }
-    return {next, prev, change, maxPage, page, pageData}; // {next: function() {...}} передали ссылку на функцию
+    return {next, prev, change, maxPage, page, pageData};
 }
 
-// usePagination.next() / prev()
+

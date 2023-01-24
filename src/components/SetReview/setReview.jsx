@@ -17,18 +17,14 @@ export default ({ comment, product, setComment, setReviews }) => {
 
     const handler = (e) => {
         e.preventDefault()
-        console.log(text)
         let obj = {
             rating: rate,
             text: text
         }
-        console.log(obj)
         api.setReviews(product._id, obj)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setComment(false)
-                // setReviews(data.reviews)
             })
     }
 

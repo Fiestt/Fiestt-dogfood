@@ -23,12 +23,9 @@ export default () => {
             wight: inp5,
             description: inp6
         }
-        console.log(body);
         api.addProduct(body)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                // Написать Товар успешно добавлен в виде доп попапа
                 if (data) {
                     setInp1("")
                     setInp2("")

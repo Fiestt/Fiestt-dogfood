@@ -30,7 +30,6 @@ export default ({flag, title}) => {
             position -= 215
             position = Math.max(position, (elem.current.childNodes.length - 4) * -215) 
         } else {
-            console.log(window.innerWidth)
 
             position -= 230
             position = Math.max(position, (elem.current.childNodes.length - 4) * -230) 
@@ -44,12 +43,9 @@ export default ({flag, title}) => {
     const moveLeft = () => {
 
         if (window.innerWidth <= 694) {
-            console.log("DA")
             position +=215
             position = Math.min(position, 0) 
         } else {
-            console.log(window.innerWidth)
-            console.log("NET")
             position +=230
 
             position = Math.min(position, 0) 

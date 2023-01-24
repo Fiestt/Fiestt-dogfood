@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {Routes, Route} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import {Container, Row, Col} from "react-bootstrap";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FooterMini from "./components/FooterMini/footerMini";
@@ -17,7 +16,6 @@ import Main from "./pages/Main"
 import Profile from "./pages/Profile"
 import AddProduct from "./pages/AddProduct";
 import Catalog from "./pages/catalog"
-import Product from "./pages/product"
 import Single from "./pages/Single"
 
 import Local from "./Local.js"
@@ -49,26 +47,8 @@ const App = () => {
     const [searchText, search] = useState("");
 
     useEffect(() => {
-        // console.log("user is changed");
         setApi(new Api(token));
     }, [token])
-    
-    
-
-    // useEffect(() => {
-
-    //     fetch("https://api.react-learning.ru/products",
-    //         {
-    //             headers: {
-    //                 "Authorization": `Bearer ${token}`
-    //             }
-    //         })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setGoods(data.products);
-    //             setData(data.products);
-    //         });
-    // }, []);
 
     useEffect(() => {
         Local.setItem("cart", cart, true)
@@ -87,7 +67,6 @@ const App = () => {
         api.showProfile()
             .then(res => res.json())
             .then(data => {
-                // console.log("User", data);
             })
         } else {
             setGoods([]);
@@ -97,7 +76,6 @@ const App = () => {
 
     useEffect(() => {
         const f = goods.filter(el => el.likes.includes(user._id))
-        // console.log(f);
         setFav(f);
         setProducts(goods);
     }, [goods])
@@ -105,9 +83,9 @@ const App = () => {
     return <Context.Provider value={{
         goods: goods,
         setGoods: setGoods,
-        products: products, //фильтрация поиска
+        products: products,
         searchText: searchText,
-        setProducts: setProducts, //фильтрация поиска
+        setProducts: setProducts,
         search: search,
         api: api,
         setApi: setApi,

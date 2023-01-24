@@ -25,7 +25,6 @@ export default ({setProduct, product, id, value, type, tagMain, tagInp}) => {
         api.updProduct(id, obj)
             .then(res => res.json())
             .then(data => {
-                console.log(data, "////");
                 setProduct(data);
                 setContent(data[type]);
                 setFlag(false);

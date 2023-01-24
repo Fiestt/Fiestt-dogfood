@@ -25,7 +25,6 @@ export default ({ el, product, setReviews, setProduct, params }) => {
 
     const delHandler = (e) => {
         e.preventDefault();
-        // console.log("deleting")
        {confirm("Вы уверены, что хотите удалить свой комментарий?") && api.delReview(product._id, el._id)
             .then(res => res.json())
             .then(data => {
@@ -40,7 +39,6 @@ export default ({ el, product, setReviews, setProduct, params }) => {
         api.getReviews(params.id)
         .then(res => res.json())
         .then(data =>  {
-            console.log(data, "xxx")
             setReviews(data)
         })
     }, [product])

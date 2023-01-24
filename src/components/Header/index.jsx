@@ -19,7 +19,6 @@ export default ({ openPopup, user, setToken, setUser, likes, cart }) => {
     const handler = e => {
         search(e.target.value);
         const result = goods.filter((el => el.name.toLowerCase().search(e.target.value.toLowerCase()) !== -1));
-        // console.log(result);
         setProducts(result);
     }
 
